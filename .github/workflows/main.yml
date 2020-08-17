@@ -27,22 +27,18 @@ jobs:
         SFDX_PROJECT_AUTOUPDATE_DISABLE_FOR_PACKAGE_CREATE: true
         SFDX_PROJECT_AUTOUPDATE_DISABLE_FOR_PACKAGE_VERSION_CREATE: true
       run: |
-# Installing the Salesforce CLI
         mkdir /tmp/sfdx
         wget -q https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz -O /tmp/sfdx/sfdx-linux-amd64.tar.xz
         tar xJf /tmp/sfdx/sfdx-linux-amd64.tar.xz -C /tmp/sfdx/ --strip-components 1
         /tmp/sfdx/install
  
-# Installing the CodeScan plugin
         echo y|sfdx plugins:install sfdx-codescan-plugin
 
-# What to run if a push triggers the build.
     - name: Run Codescan On Push
       if: github.event_name == 'push'
       run: |
         sfdx codescan:run --token=$codescan_token --projectkey=$codescan_project_key --organization=$codescan_org -Dsonar.branch.name=$branch_name
     
-# What to run if a pull request triggers the build.
     - name: Run Codescan On PR
       if: github.event_name == 'pull_request'
       env:  

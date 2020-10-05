@@ -4,7 +4,7 @@ function click_btn(id){
     document.getElementById("temp").innerHTML = button.innerHTML
 }
 
-function disable_btn(num, player, color){
+function disable_btn(num, player, color)
     var grid_elem = document.getElementById("game_id").children;
     for(var idx = 0; idx<grid_elem.length; idx++){
         if(grid_elem[idx].innerHTML == num){
@@ -31,7 +31,7 @@ class CreateLayout{
         this.grid_cols = grid_cols
     }
 
-    create_layout(){
+    create_layout()
         this.create_score_and_timmer_section("target", this.target_score, this.target_time)
         this.create_player(1, this.player_1_name, 0, this.player_timmer)
         this.create_player(2, this.player_2_name, 0, this.player_timmer)

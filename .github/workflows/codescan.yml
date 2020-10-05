@@ -18,7 +18,7 @@ jobs:
             - name: Run Analysis
               uses: codescan-io/codescan-scanner-action@master
               with:
-                  login: ${{ secrets.codescan_token2 }}
+                  login: ${{ secrets.CODESCAN_TOKEN2 }}
                   organization: 442
                   projectKey: sarif-test
             - name: Upload SARIF file

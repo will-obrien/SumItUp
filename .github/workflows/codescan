@@ -1,0 +1,19 @@
+- name: CodeScan Scanner
+  # You may pin to the exact commit or the version.
+  # uses: codescan-io/codescan-scanner-action@5b2e8c5683ef6a5adc8fa3b7950bb07debccce12
+  uses: codescan-io/codescan-scanner-action@1.2
+  with:
+    # CodeScan Organization Key
+    organization: 5f348e5e0af2540037851a6d
+    # CodeScan Project Key
+    projectKey: Dheeraj0305-SumItUp
+    # CodeScan Login Key
+    login: git_code_scan
+    # CodeScanCloud endpoint for your project
+    codeScanUrl: https://app.codescan.io/dashboard?id=Dheeraj0305-SumItUp
+    # This task will poll CodeScanCloud until the analysis is completed, or until the timeout is reached
+    pollingTimeoutSec: # optional, default is 900
+    # The flag to indicate that SARIF file should be generated
+    generateSarifFile: # optional, default is true
+    # Additional arguments to the sonarcloud scanner
+    args: # optional
